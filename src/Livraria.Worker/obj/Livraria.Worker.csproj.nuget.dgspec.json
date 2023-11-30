@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\repos\\Desafios\\Livraria\\src\\Livraria.Worker\\Livraria.Worker.csproj": {}
+  },
+  "projects": {
+    "C:\\repos\\Desafios\\Livraria\\src\\Livraria.Worker\\Livraria.Worker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\repos\\Desafios\\Livraria\\src\\Livraria.Worker\\Livraria.Worker.csproj",
+        "projectName": "Livraria.Worker",
+        "projectPath": "C:\\repos\\Desafios\\Livraria\\src\\Livraria.Worker\\Livraria.Worker.csproj",
+        "packagesPath": "C:\\Users\\wmalmeida\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\Desafios\\Livraria\\src\\Livraria.Worker\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wmalmeida\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Edenred-TicketBenefits/_packaging/Default/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.19.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
