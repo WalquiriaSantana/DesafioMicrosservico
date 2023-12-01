@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mQQOnhMjK0wBhMjmhWiH72L+S3aJUOCFq3NdXV6qga7NOcoTMJhkMIvw1uWNz0B/OBivjytxZaMa7JMN5f1d8A==",
+  "dgSpecHash": "g/We2BOwEXr63lXHC5P6n9t/dcSTH90BNBvWWqjsPjLZDrjBzpzaYaw6+RQoCXU5DJFnsQc44kqM8NyLxQx80Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wmalmeida\\OneDrive - EDENRED\\Bureau\\teste\\src\\Livraria.API\\Livraria.API.csproj",
+  "projectFilePath": "C:\\Users\\wmalmeida\\source\\repos\\DesafioMicrosservico\\src\\Livraria.API\\Livraria.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wmalmeida\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\wmalmeida\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

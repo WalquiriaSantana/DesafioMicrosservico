@@ -1437,11 +1437,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wmalmeida\\OneDrive - EDENRED\\Bureau\\teste\\src\\Livraria.Worker\\Livraria.Worker.csproj",
+      "projectUniqueName": "C:\\Users\\wmalmeida\\source\\repos\\DesafioMicrosservico\\src\\Livraria.Worker\\Livraria.Worker.csproj",
       "projectName": "Livraria.Worker",
-      "projectPath": "C:\\Users\\wmalmeida\\OneDrive - EDENRED\\Bureau\\teste\\src\\Livraria.Worker\\Livraria.Worker.csproj",
+      "projectPath": "C:\\Users\\wmalmeida\\source\\repos\\DesafioMicrosservico\\src\\Livraria.Worker\\Livraria.Worker.csproj",
       "packagesPath": "C:\\Users\\wmalmeida\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wmalmeida\\OneDrive - EDENRED\\Bureau\\teste\\src\\Livraria.Worker\\obj\\",
+      "outputPath": "C:\\Users\\wmalmeida\\source\\repos\\DesafioMicrosservico\\src\\Livraria.Worker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wmalmeida\\AppData\\Roaming\\NuGet\\NuGet.Config",

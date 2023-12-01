@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s+2kyCQPwAjmyRIVgZ+jxDd4F7RauPeN/6y4IaSmAH76s9hXHyBFXd/8YpgG8TGR3yizQSRjnDxrPY7lS3gIOQ==",
+  "dgSpecHash": "031H/AI0zhFSTXEtwznGXMgFIVy4EGr/ExqSPlScq+D9n2ILg9qKN5FfX14g9sOAmpGVuvbO56/AAGC3S51zxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wmalmeida\\OneDrive - EDENRED\\Bureau\\teste\\src\\Livraria.Worker\\Livraria.Worker.csproj",
+  "projectFilePath": "C:\\Users\\wmalmeida\\source\\repos\\DesafioMicrosservico\\src\\Livraria.Worker\\Livraria.Worker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wmalmeida\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\wmalmeida\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
