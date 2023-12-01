@@ -5,11 +5,12 @@ USE livraria;
 
 -- Criar a tabela Produtos
 CREATE TABLE IF NOT EXISTS Produtos (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     valor DECIMAL(10, 2) NOT NULL,
     imagem VARCHAR(255),
-    quantidade INT NOT NULL
+    quantidade INT NOT NULL,
+    PRIMARY KEY(id)
 );
 
 select * from Produtos;

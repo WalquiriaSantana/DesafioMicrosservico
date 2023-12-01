@@ -19,3 +19,9 @@ services:
       MYSQL_DATABASE: livraria
       MYSQL_USER: your_mysql_user
       MYSQL_PASSWORD: your_mysql_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./script.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
