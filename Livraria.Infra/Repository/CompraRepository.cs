@@ -1,4 +1,6 @@
-﻿using Livraria.Domain.Entities;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Livraria.Domain.Entities;
 using Livraria.Domain.Interfaces;
 using Livraria.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -7,30 +9,28 @@ namespace Livraria.Infra.Repository
 {
     public class CompraRepository : ICompraRepository
     {
-        private readonly LivrariaDbContext _dbContext; // Substitua 'SeuDbContext' pelo contexto do seu banco de dados
+        private readonly LivrariaDbContext _context;
 
-        public CompraRepository(LivrariaDbContext dbContext)
+        public CompraRepository(DbContextOptions<LivrariaDbContext> options)
         {
-            _dbContext = dbContext;
+            _context = new LivrariaDbContext(options);
         }
 
         public async Task<Compra> ObterPorIdAsync(int compraId)
         {
-            return await _dbContext.Compras.FindAsync(compraId);
+            return await _context.Compras.FindAsync(compraId);
         }
 
         public async Task<List<Compra>> ObterTodasComprasAsync()
         {
-            return await _dbContext.Compras.ToListAsync();
+            return await _context.Compras.ToListAsync();
         }
 
         public async Task<int> AdicionarAsync(Compra compra)
         {
-            _dbContext.Compras.Add(compra);
-            await _dbContext.SaveChangesAsync();
+            _context.Compras.Add(compra);
+            await _context.SaveChangesAsync();
             return compra.Id;
         }
-
-        // Outros métodos de repositório relacionados a compras
     }
 }

@@ -3,7 +3,7 @@
 CREATE DATABASE IF NOT EXISTS livraria;
 USE livraria;
 
--- Criar a tabela Produtos
+-- Criar a tabela Produtos(Livros)
 CREATE TABLE IF NOT EXISTS Produtos (
     id INT AUTO_INCREMENT NOT NULL,
     nome VARCHAR(255) NOT NULL,

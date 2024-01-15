@@ -1,29 +1,31 @@
 using Livraria.Domain.Entities;
-using Livraria.Infrastructure.Contexts;
+using Livraria.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 [Route("api/[controller]")]
 [ApiController]
 public class LivrosController : ControllerBase
 {
-    private readonly LivrariaDbContext _dbContext;
+    private readonly ILivroRepository _livroRepository;
+    private readonly ICarrinhoRepository _carrinhoRepository;
 
-    public LivrosController(LivrariaDbContext dbContext)
+    public LivrosController(ILivroRepository livroRepository, ICarrinhoRepository carrinhoRepository)
     {
-        _dbContext = dbContext;
+        _livroRepository = livroRepository;
+        _carrinhoRepository = carrinhoRepository;
     }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Livro>>> GetLivros()
     {
-        return await _dbContext.Livros.ToListAsync();
+        var livros = await _livroRepository.ObterTodosAsync();
+        return Ok(livros);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Livro>> GetLivro(int id)
     {
-        var livro = await _dbContext.Livros.FindAsync(id);
+        var livro = await _livroRepository.ObterPorIdAsync(id);
 
         if (livro == null)
         {
@@ -36,8 +38,7 @@ public class LivrosController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Livro>> PostLivro(Livro livro)
     {
-        _dbContext.Livros.Add(livro);
-        await _dbContext.SaveChangesAsync();
+        await _livroRepository.AdicionarAsync(livro);
 
         return CreatedAtAction("GetLivro", new { id = livro.Id }, livro);
     }
@@ -50,29 +51,25 @@ public class LivrosController : ControllerBase
             return BadRequest();
         }
 
-        _dbContext.Entry(livro).State = EntityState.Modified;
+        var livroExistente = await _livroRepository.ObterPorIdAsync(id);
+        if (livroExistente == null)
+        {
+            return NotFound();
+        }
 
-        try
-        {
-            await _dbContext.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!LivroExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+        livroExistente.Nome = livro.Nome;
+        livroExistente.Valor = livro.Valor;
+        livroExistente.Imagem = livro.Imagem;
+        livroExistente.Quantidade = livro.Quantidade;
+
+        await _livroRepository.AtualizarAsync(livroExistente);
 
         return NoContent();
     }
 
-    private bool LivroExists(int id)
+    private async Task<bool> LivroExistsAsync(int id)
     {
-        return _dbContext.Livros.Any(e => e.Id == id);
+        var livro = await _livroRepository.ObterPorIdAsync(id);
+        return livro != null;
     }
 }

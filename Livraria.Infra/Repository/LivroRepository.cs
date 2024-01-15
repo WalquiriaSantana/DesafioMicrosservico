@@ -1,21 +1,41 @@
-﻿using Livraria.Domain.Entities;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Livraria.Domain.Entities;
 using Livraria.Domain.Interfaces;
+using Livraria.Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Livraria.Infra.Repository;
-
-public class LivroRepository : ILivroRepository
+namespace Livraria.Infra.Repository
 {
-    public async Task<List<Livro>> ObterTodosAsync()
+    public class LivroRepository : ILivroRepository
     {
-        // Lógica para obter todos os livros do banco de dados
-        // Retorne uma lista de livros, por exemplo
-        return await Task.FromResult(new List<Livro>());
-    }
+        private readonly LivrariaDbContext _context;
 
-    public async Task<Livro> ObterPorIdAsync(int livroId)
-    {
-        // Lógica para obter um livro por ID do banco de dados
-        // Retorne um livro, por exemplo
-        return await Task.FromResult(new Livro());
+        public LivroRepository(LivrariaDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<List<Livro>> ObterTodosAsync()
+        {
+            return await _context.Livros.ToListAsync();
+        }
+
+        public async Task<Livro> ObterPorIdAsync(int livroId)
+        {
+            return await _context.Livros.FindAsync(livroId);
+        }
+
+        public async Task AdicionarAsync(Livro livro)
+        {
+            _context.Livros.Add(livro);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AtualizarAsync(Livro livro)
+        {
+            _context.Livros.Update(livro);
+            await _context.SaveChangesAsync();
+        }
     }
 }

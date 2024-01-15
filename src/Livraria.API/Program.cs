@@ -6,22 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string server = "localhost";
-string database = "livraria";
-string uid = "your_mysql_user";
-string password = "your_mysql_root_password";
-
-string connectionString = $"Server={server};Database={database};User ID={uid};Password={password};";
-
-builder.Services.AddDbContext<LivrariaDbContext>(options =>
-          options.UseMySQL(connectionString));
+var connectionString = "server=localhost;user id=your_mysql_user;password=your_mysql_password;database=livraria";
+builder.Services.AddDbContext<LivrariaDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddScoped<ILivroRepository, LivroRepository>();
 builder.Services.AddScoped<ICompraRepository, CompraRepository>();
@@ -33,7 +23,6 @@ builder.Services.AddScoped<ICarrinhoServico, CarrinhoServico>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -16,8 +16,13 @@ namespace Livraria.Domain.Entities
 
         public class ItemCarrinho
         {
+            public int? CarrinhoId { get; set; }
             public int LivroId { get; set; }
             public int Quantidade { get; set; }
+
+            public Carrinho Carrinho { get; set; }
+            public Livro Livro { get; set; }
+
         }
     }
 }

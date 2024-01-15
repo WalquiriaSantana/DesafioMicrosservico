@@ -6,5 +6,7 @@ namespace Livraria.Domain.Interfaces
     {
         Task<List<Livro>> ObterTodosAsync();
         Task<Livro> ObterPorIdAsync(int livroId);
+        Task AdicionarAsync(Livro livro);
+        Task AtualizarAsync(Livro livro);
     }
 }

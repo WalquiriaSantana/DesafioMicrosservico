@@ -19,17 +19,13 @@ namespace Livraria.Domain.Servicos
 
         public async Task<int> AdicionarCarrinhoAsync(Carrinho carrinho)
         {
-            // Lógica adicional, validações, etc., podem ser adicionadas aqui antes de chamar o repositório
             return await _carrinhoRepository.AdicionarAsync(carrinho);
         }
 
         public async Task AtualizarCarrinhoAsync(Carrinho carrinho)
         {
-            // Lógica adicional, validações, etc., podem ser adicionadas aqui antes de chamar o repositório
             await _carrinhoRepository.AtualizarAsync(carrinho);
         }
-
-        // Outros métodos relacionados a serviços de carrinhos
     }
 }
 
